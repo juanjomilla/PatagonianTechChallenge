@@ -4,7 +4,7 @@
 
 This .NET Core project is an API that has two endpoints. One of them retrieves information from a SQLite database and the other one retrieves information from the Spotify's public API. You will find more information on the API specification.
 
-## Pre-requisites
+## Prerequisites
 
 - Database populated (run the script to populate the database, see more information [here](../script/README.md))
 - Visual Studio (find the latest version [here](https://visualstudio.microsoft.com/downloads/))

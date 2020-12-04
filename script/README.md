@@ -3,7 +3,7 @@
 ## Overview
 This script creates and populates the database used by each API project. It uses the Spotify's public API to get the information.
 
-## Pre-requisites
+## Prerequisites
 
 - Nodejs (find the latest version [here](https://nodejs.org/en/download/))
 - Registered Spotify Application
@@ -32,6 +32,7 @@ Run the script with node:
 ![run-script](./assets/run-script-1.png)
 
 After a while, you will see the following output
+
 ![script-finished](./assets/run-script-2.png)
 
 The database has been populated.
