@@ -1,0 +1,17 @@
+{
+  "name": "patagonian-challenge",
+  "version": "1.0.0",
+  "description": "Patagonian Challenge",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "start": "node src/index.js"
+  },
+  "author": "Juan Milla",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "minimist": "^1.2.5",
+    "sqlite3": "^5.0.0"
+  }
+}
