@@ -2,11 +2,15 @@ const axios = require('axios').default;
 const sqlite3 = require('sqlite3');
 const args = require('minimist')(process.argv.slice(2));
 
-const { clientId, secretKey, artistIds, projectType } = args;
+const { clientId, secretKey, artistIds } = args;
 const spotifyBaseApiUrl = 'https://api.spotify.com/v1';
 
-const databasePath = getDatabasePath();
-const db = initializeDatabase(databasePath);
+const dbNodejsPath = '../nodejs/database/dbtest.db';
+const dbNetCorePath = '../netcore/PatagonianChallengeAPI/PatagonianChallengeAPI/database/dbtest.db';
+
+const dbNodejs = initializeDatabase(dbNodejsPath);
+const dbNetCore = initializeDatabase(dbNetCorePath);
+
 let authorizationToken = '';
 
 async function getAuthorizationToken() {
@@ -103,14 +107,6 @@ async function getTrackByAlbumId(albumId) {
   return tracksNames;
 }
 
-function getDatabasePath(){
-  if (projectType === 'netcore'){
-    return '../netcore/PatagonianChallengeAPI/PatagonianChallengeAPI/database/dbtest.db';
-  }
-
-  return '../nodejs/database/dbtest.db';
-}
-
 async function retryGet(url, config, maxRetries = 5) {
   try {
     return await axios.get(url, config);
@@ -151,18 +147,18 @@ async function wait(seconds) {
   return new Promise((resolve, reject) => setTimeout(resolve, seconds * 1000));
 }
 
-function saveArtistIntoDatabase(artistId, artistName) {
+function saveArtistIntoDatabase(artistId, artistName, database) {
   return new Promise((resolve, reject) => {
-    db.run('INSERT INTO artist(id, name) VALUES (?, ?)', [artistId, artistName], (err) => {
+    database.run('INSERT INTO artist(id, name) VALUES (?, ?)', [artistId, artistName], (err) => {
       if (err) reject(err);
       else resolve(this);
     });
   });
 }
 
-function saveTrackIntoDatabase(trackId, trackName, artistId) {
+function saveTrackIntoDatabase(trackId, trackName, artistId, database) {
   return new Promise((resolve, reject) => {
-    db.run('INSERT INTO track(id, name, artist_id) VALUES (?, ?, ?)', [trackId, trackName, artistId], (err) => {
+    database.run('INSERT INTO track(id, name, artist_id) VALUES (?, ?, ?)', [trackId, trackName, artistId], (err) => {
       if (err) reject(err);
       else resolve(this);
     });
@@ -171,10 +167,12 @@ function saveTrackIntoDatabase(trackId, trackName, artistId) {
 
 async function saveResultsIntoDatabase(results) {
   for (const result of results) {
-    await saveArtistIntoDatabase(result.artistId, result.artistName);
+    await saveArtistIntoDatabase(result.artistId, result.artistName, dbNetCore);
+    await saveArtistIntoDatabase(result.artistId, result.artistName, dbNodejs);
 
     for (const track of result.tracks) {
-      await saveTrackIntoDatabase(track.id, track.name, result.artistId);
+      await saveTrackIntoDatabase(track.id, track.name, result.artistId, dbNetCore);
+      await saveTrackIntoDatabase(track.id, track.name, result.artistId, dbNodejs);
     }
   }
 }

@@ -20,15 +20,18 @@ namespace PatagonianChallengeAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<SongListResponseModel>> GetSongs([FromQuery]string artistName, [FromQuery]int limit = 20, [FromQuery]int offset = 0)
+        public async Task<ActionResult<SongListResponseModel>> GetSongs(
+            [FromQuery]string artistName,
+            [FromQuery]int limit = 20,
+            [FromQuery]int offset = 0)
         {
-            if (string.IsNullOrEmpty(artistName) || artistName.Length < 3)
+            if (string.IsNullOrWhiteSpace(artistName) || artistName.Length < 3)
             {
                 return BadRequest("The 'artistName' parameter is mandatory, should be not empty and should have at least 3 characters");
             }
 
-            var songs = await _songService.GetSongs(artistName, offset, limit);
-            var songsCount = await _songService.GetSongsCount(artistName);
+            var songs = await _songService.GetSongsAsync(artistName, offset, limit);
+            var songsCount = await _songService.GetSongsCountAsync(artistName);
 
             var queryParams = new List<KeyValuePair<string, string>>
             {
@@ -49,7 +52,7 @@ namespace PatagonianChallengeAPI.Controllers
         [Route("{songId}")]
         public async Task<ActionResult<SongInfoModel>> GetSong([FromRoute]string songId)
         {
-            var song = await _songService.GetSongInfo(songId);
+            var song = await _songService.GetSongInfoAsync(songId);
             if (song == null)
             {
                 return NotFound(new { message = "Song not found" });

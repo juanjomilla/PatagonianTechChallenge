@@ -1,14 +1,19 @@
-# PatagonianTech - API Challenge
+# Patagonian - API Challenge
 
 ## Overview
 
-You will find 3 folders. Each of them contains its own README file to explain what the directory contains and how to run it. Along with these 3 folders, you will find the API spefication for both projects. The API specification is the html file `api.html`.
+Welcome to the Patagonian API challenge! The solution implemented consists on 3 projects: one for the database script and two versions of the API (netcore and node.js). 
 
-## How to use them
+Each directory contains its own README file which explains what the directory contains and how to run it. 
+
+Additionally, for the APIs there is an html file named `api.html` which contains the API specification. 
+
+## Prerequisites
 
 First of all, you need to populate the database. After the database is populated, you can run any of the APIs.
-So, you must start with `script` directory first. Follow the steps in the README file to know how to populate the database for each project.
 
-- script [readme file](./script/README.md)
+Follow the steps in the [README file](./script/README.md) to know how to populate it.
+## APIs
+Below you can find the routes to the corresponding README file. At this point, you should be able to use them. Follow the steps mentioned on each README to know how to use them:
 - netcore [readme file](./netcore/README.md)
 - nodejs [readme file](./nodejs/README.md)

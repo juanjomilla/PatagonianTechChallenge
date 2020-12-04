@@ -6,7 +6,7 @@ namespace PatagonianChallengeAPI.Models.Dao.DatabaseModels
     {
         public SongModelMapping()
         {
-            Id(x => x.SongId, "id");
+            Id(x => x.SongId, "id").GeneratedBy.Assigned();
             Map(x => x.SongName, "name");
             References(x => x.Artist, "artist_id");
             Table("track");

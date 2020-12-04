@@ -1,0 +1,24 @@
+﻿[
+  {
+    "Id": "artistId",
+    "Name": "Daft Punk",
+    "Songs": [
+      {
+        "songName": "Give Life Back to Music",
+        "songId": "firstSong"
+      },
+      {
+        "songName": "The Game of Love",
+        "songId": "secondSong"
+      },
+      {
+        "songName": "Giorgio by Moroder",
+        "songId": "thirdSong"
+      },
+      {
+        "songName": "Within",
+        "songId": "fourthSong"
+      }
+    ]
+  }
+]

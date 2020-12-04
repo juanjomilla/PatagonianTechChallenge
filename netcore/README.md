@@ -44,6 +44,6 @@ Open Postman and start requesting to the endpoints. If you need more information
 
 ![songs](./assets/postman-1.png)
 
-#### /api/v1/song/{songId} endpoint
+#### /api/v1/songs/{songId} endpoint
 
 ![song-details](./assets/postman-2.png)

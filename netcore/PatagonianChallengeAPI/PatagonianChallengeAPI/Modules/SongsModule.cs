@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NHibernate;
 using PatagonianChallengeAPI.Dao;
+using PatagonianChallengeAPI.Dao.Http;
 using PatagonianChallengeAPI.Models.Dao.DatabaseModels;
 using PatagonianChallengeAPI.Services;
 
@@ -46,6 +47,15 @@ namespace PatagonianChallengeAPI.Modules
 
             services.AddScoped(typeof(ISongService), typeof(SongService));
             services.AddScoped(typeof(ISongsDao), typeof(SongsDao));
+            services.AddSingleton(typeof(IHttpClientFactory), typeof(HttpClientFactory));
+            services.AddScoped(typeof(ISongHttpClient), service =>
+            {
+                var serviceProvider = services.BuildServiceProvider();
+                var config = serviceProvider.GetService<IConfiguration>();
+                var httpClientFacotry = serviceProvider.GetService<IHttpClientFactory>();
+
+                return new SongHttpClient(httpClientFacotry, config);
+            });
         }
     }
 }

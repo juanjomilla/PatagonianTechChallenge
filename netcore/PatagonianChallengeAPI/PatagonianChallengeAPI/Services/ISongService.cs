@@ -7,10 +7,10 @@ namespace PatagonianChallengeAPI.Services
 {
     public interface ISongService
     {
-        Task<IEnumerable<SongModel>> GetSongs(string artistName, int offset, int limit);
+        Task<IEnumerable<SongModel>> GetSongsAsync(string artistName, int offset, int limit);
 
-        Task<int> GetSongsCount(string artistName);
+        Task<int> GetSongsCountAsync(string artistName);
 
-        Task<SongInfoModel> GetSongInfo(string songId);
+        Task<SongInfoModel> GetSongInfoAsync(string songId);
     }
 }

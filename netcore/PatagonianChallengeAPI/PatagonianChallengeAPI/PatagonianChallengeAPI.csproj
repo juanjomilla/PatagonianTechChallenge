@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <None Update="database\dbtest.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

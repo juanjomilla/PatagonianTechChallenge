@@ -7,7 +7,7 @@ namespace PatagonianChallengeAPI.Dao
 {
     public interface ISongsDao
     {
-        Task<IEnumerable<SongModel>> GetSongsAsync(string artistName, int limit, int offset);
+        Task<IEnumerable<SongModel>> GetSongsByArtistNameAsync(string artistName, int limit, int offset);
 
         Task<int> GetSongsCountAsync(string artistName);
 

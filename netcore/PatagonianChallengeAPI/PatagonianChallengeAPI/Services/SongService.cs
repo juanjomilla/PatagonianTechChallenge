@@ -15,17 +15,17 @@ namespace PatagonianChallengeAPI.Services
             _songsDao = songsDao;
         }
 
-        public async Task<IEnumerable<SongModel>> GetSongs(string artistName, int offset, int limit)
+        public async Task<IEnumerable<SongModel>> GetSongsAsync(string artistName, int offset, int limit)
         {
-            return await _songsDao.GetSongsAsync(artistName, limit, offset);
+            return await _songsDao.GetSongsByArtistNameAsync(artistName, limit, offset);
         }
 
-        public async Task<int> GetSongsCount(string artistName)
+        public async Task<int> GetSongsCountAsync(string artistName)
         {
             return await _songsDao.GetSongsCountAsync(artistName);
         }
 
-        public async Task<SongInfoModel> GetSongInfo(string songId)
+        public async Task<SongInfoModel> GetSongInfoAsync(string songId)
         {
             var song = await _songsDao.GetSongByIdAsync(songId);
 

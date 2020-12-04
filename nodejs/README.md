@@ -18,13 +18,13 @@ This Nodejs project is an API that has two endpoints. One of them retrieves info
 
 First of all, you need to store your Spotify credentials (Spotify Client Id & Spotify Secret Key) into the .env file located at the `nodejs` folder.
 
-![set-spotify-credentials](./assets/env-file.png)
+![set-spotify-credentials](./assets/api-nodejs-env-file.png)
 
 ### Step 2
 
 Open a Powershell window (or Terminal if you're running on MacOS or Linux bash) within `nodejs` directory and install node packages using `npm install`.
 
-![install-packages](./assets/npm-install.png)
+![install-packages](./assets/api-nodejs-npm-install.png)
 
 ### Step 3
 
@@ -32,7 +32,7 @@ After that, start the API with node:
 
 `node src/index.js`
 
-![run-api](./assets/run-server.png)
+![run-api](./assets/api-nodejs-run-server.png)
 
 The API is running!
 
@@ -42,8 +42,8 @@ Open Postman and start requesting to the endpoints. If you need more information
 
 #### /api/v1/songs endpoint
 
-![songs](./assets/postman-1.png)
+![songs](./assets/api-nodejs-postman-1.png)
 
-#### /api/v1/song/{songId} endpoint
+#### /api/v1/songs/{songId} endpoint
 
-![song-details](./assets/postman-2.png)
+![song-details](./assets/api-nodejs-postman-2.png)

@@ -17,8 +17,6 @@ This script creates and populates the database used by each API project. It uses
   - Specifies the Spotify's Secret Key application
 - --artistIds
   - Specifies the Artist IDs used by the script to populate the database. It is a comma separated value
-- --projectType `[optional]`
-  - Specifies if the script should generate the database for the Nodejs project or .NET Core project. As default, it will generate the database for Nodejs project. Possible values are `nodejs` and `netcore`
 
 ## How to populate the database
 ### Step 1
@@ -29,7 +27,7 @@ First of all, you need to restore the npm packages. Open a Powershell window (or
 ### Step 2
 Run the script with node:
 
-`node src/index.js --clientId=<YOUR_SPOTIFY_CLIENT_ID> --secretKey=<YOUR_SPOTIFY_SECRET_KEY> --artistIds=<ARTIST_ID1[,ARTIST_ID2]> [--projectType=<netcore | nodejs>]`
+`node src/index.js --clientId=<YOUR_SPOTIFY_CLIENT_ID> --secretKey=<YOUR_SPOTIFY_SECRET_KEY> --artistIds=<ARTIST_ID1[,ARTIST_ID2]>`
 
 ![run-script](./assets/run-script-1.png)
 
@@ -37,7 +35,6 @@ After a while, you will see the following output
 ![script-finished](./assets/run-script-2.png)
 
 The database has been populated.
-In the example the database for `.NET Core` project was populated, but if you want to populate the database for `Nodejs` project, change the `--projectType` parameter value to `nodejs`.
 
 **_NOTE: Every time you run the script, it will override all the existent information._**
 
