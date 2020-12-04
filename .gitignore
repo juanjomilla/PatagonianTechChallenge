@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Visual studio folder
+.vs
+
+# .NET folders
+obj/
+bin/
+config/
+
+netcore/PatagonianChallengeAPI/PatagonianChallengeAPI/config/servicesettings.json
+
